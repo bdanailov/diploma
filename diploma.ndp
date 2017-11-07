@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Document created by Neural Editor-->
+<NeuralDesignerProject ProjectType="Classification">
+    <Description></Description>
+    <DataSet>
+        <DataFile>
+            <FileType>csv</FileType>
+            <FirstCell>No excel</FirstCell>
+            <LastCell>No excel</LastCell>
+            <SheetNumber>0</SheetNumber>
+            <LagsNumber>0</LagsNumber>
+            <StepsAhead>0</StepsAhead>
+            <ColumnsName>0</ColumnsName>
+            <RowsLabel>0</RowsLabel>
+            <Separator>Comma</Separator>
+            <MissingValuesLabel>NaN</MissingValuesLabel>
+            <DataFileName>trainingData.csv</DataFileName>
+        </DataFile>
+        <Variables>
+            <VariablesNumber>6</VariablesNumber>
+            <Item Index="1">
+                <Name>variable_1</Name>
+                <Units></Units>
+                <Description></Description>
+                <Use>Input</Use>
+            </Item>
+            <Item Index="2">
+                <Name>variable_2</Name>
+                <Units></Units>
+                <Description></Description>
+                <Use>Input</Use>
+            </Item>
+            <Item Index="3">
+                <Name>variable_3</Name>
+                <Units></Units>
+                <Description></Description>
+                <Use>Input</Use>
+            </Item>
+            <Item Index="4">
+                <Name>variable_4</Name>
+                <Units></Units>
+                <Description></Description>
+                <Use>Target</Use>
+            </Item>
+            <Item Index="5">
+                <Name>variable_5</Name>
+                <Units></Units>
+                <Description></Description>
+                <Use>Target</Use>
+            </Item>
+            <Item Index="6">
+                <Name>variable_6</Name>
+                <Units></Units>
+                <Description></Description>
+                <Use>Target</Use>
+            </Item>
+        </Variables>
+        <Instances>
+            <InstancesNumber>300</InstancesNumber>
+            <ItemsUses>0 0 2 0 0 1 0 0 1 0 2 2 1 0 2 0 0 1 1 0 2 0 1 2 0 0 1 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 2 0 0 0 2 1 1 1 1 0 0 1 2 0 2 0 0 0 2 0 2 1 0 0 2 0 2 2 0 1 0 0 0 1 0 2 1 1 0 0 0 1 2 0 0 0 0 0 0 0 0 2 0 0 1 0 0 0 0 0 0 2 0 2 0 0 0 0 2 0 0 2 1 2 0 0 2 0 1 1 0 1 0 1 0 0 0 0 1 0 0 1 0 1 0 2 0 0 1 2 0 0 0 2 0 0 0 0 1 0 2 2 0 0 0 1 0 2 0 0 0 0 2 2 1 0 2 0 0 1 2 0 0 0 1 2 0 0 0 0 1 2 1 1 2 1 1 0 2 1 0 2 0 2 2 0 0 1 0 0 2 2 2 1 2 0 0 1 2 0 0 0 2 0 1 0 1 0 0 1 0 0 2 0 0 0 0 0 2 2 0 1 2 0 0 1 2 2 0 0 0 1 1 0 0 0 0 0 0 1 0 0 1 1 2 0 0 1 1 0 0 0 2 0 0 0 0 1 2 0 0 0 0 0 0 0 2 0 0 0 1 0 0 0 0 2 2 1 0 0 0 0 1 0 2 0 0</ItemsUses>
+        </Instances>
+        <MissingValues>
+            <InstancesNumber>300</InstancesNumber>
+            <VariablesNumber>6</VariablesNumber>
+            <ScrubbingMethod>Mean</ScrubbingMethod>
+            <MissingValuesNumber>0</MissingValuesNumber>
+        </MissingValues>
+    </DataSet>
+    <NeuralNetwork>
+        <Inputs>
+            <InputsNumber>3</InputsNumber>
+            <Item Index="1">
+                <Name>variable_1</Name>
+                <Units></Units>
+                <Description></Description>
+            </Item>
+            <Item Index="2">
+                <Name>variable_2</Name>
+                <Units></Units>
+                <Description></Description>
+            </Item>
+            <Item Index="3">
+                <Name>variable_3</Name>
+                <Units></Units>
+                <Description></Description>
+            </Item>
+        </Inputs>
+        <ScalingLayer>
+            <ScalingNeuronsNumber>3</ScalingNeuronsNumber>
+            <ScalingNeuron Index="1">
+                <Minimum>15</Minimum>
+                <Maximum>100</Maximum>
+                <Mean>58.3567</Mean>
+                <StandardDeviation>27.1564</StandardDeviation>
+                <ScalingMethod>MinimumMaximum</ScalingMethod>
+            </ScalingNeuron>
+            <ScalingNeuron Index="2">
+                <Minimum>15</Minimum>
+                <Maximum>98</Maximum>
+                <Mean>54.66</Mean>
+                <StandardDeviation>25.8582</StandardDeviation>
+                <ScalingMethod>MinimumMaximum</ScalingMethod>
+            </ScalingNeuron>
+            <ScalingNeuron Index="3">
+                <Minimum>15</Minimum>
+                <Maximum>100</Maximum>
+                <Mean>58.0167</Mean>
+                <StandardDeviation>26.0365</StandardDeviation>
+                <ScalingMethod>MinimumMaximum</ScalingMethod>
+            </ScalingNeuron>
+        </ScalingLayer>
+        <PrincipalComponentsLayer>
+            <InputsNumber>3</InputsNumber>
+            <PrincipalComponentsNumber>0</PrincipalComponentsNumber>
+            <PrincipalComponentsMethod>NoPrincipalComponents</PrincipalComponentsMethod>
+        </PrincipalComponentsLayer>
+        <MultilayerPerceptron>
+            <Architecture>3 10 3</Architecture>
+            <LayersActivationFunction>Logistic Logistic</LayersActivationFunction>
+            <Parameters>-0.301352 0.0287034 -0.147177 -0.31296 -0.899067 -0.81136 0.61871 0.758025 0.973287 0.0425216 -0.43144 -0.639727 -0.281507 -0.122019 0.707569 0.366197 0.572373 -0.227403 -0.719324 -0.146891 -0.79322 0.200811 0.935388 -0.781533 0.738179 -0.681351 0.605207 -0.373626 -0.208632 -0.0886192 0.0646838 0.490017 0.940084 0.917507 -0.822943 -0.958983 -0.893853 0.795766 0.799042 -0.920566 -0.161712 -0.632398 -0.560293 0.556781 0.245583 -0.852724 -0.0770222 -0.182044 -0.080127 0.203654 0.671065 0.126653 -0.595535 0.606453 0.34512 -0.857356 0.925102 -0.0496723 -0.230982 -0.283529 0.861709 0.833702 -0.793513 0.801793 0.751209 -0.616456 0.842809 0.857355 -0.82069 0.641851 0.936789 0.0175978 -0.990547</Parameters>
+        </MultilayerPerceptron>
+        <ProbabilisticLayer>
+            <ProbabilisticNeuronsNumber>3</ProbabilisticNeuronsNumber>
+            <ProbabilisticMethod>Competitive</ProbabilisticMethod>
+            <DecisionThreshold>0.5</DecisionThreshold>
+        </ProbabilisticLayer>
+        <Outputs>
+            <OutputsNumber>3</OutputsNumber>
+            <Item Index="1">
+                <Name>variable_4</Name>
+                <Units></Units>
+                <Description></Description>
+            </Item>
+            <Item Index="2">
+                <Name>variable_5</Name>
+                <Units></Units>
+                <Description></Description>
+            </Item>
+            <Item Index="3">
+                <Name>variable_6</Name>
+                <Units></Units>
+                <Description></Description>
+            </Item>
+        </Outputs>
+    </NeuralNetwork>
+    <LossIndex>
+        <Objective Type="NORMALIZED_SQUARED_ERROR"/>
+        <Regularization Type="NEURAL_PARAMETERS_NORM">
+            <NeuralParametersNormWeight>0.001</NeuralParametersNormWeight>
+        </Regularization>
+    </LossIndex>
+    <TrainingStrategy>
+        <Main Type="QUASI_NEWTON_METHOD">
+            <InverseHessianApproximationMethod>BFGS</InverseHessianApproximationMethod>
+            <TrainingRateAlgorithm>
+                <TrainingRateMethod>BrentMethod</TrainingRateMethod>
+                <TrainingRateTolerance>0.005</TrainingRateTolerance>
+            </TrainingRateAlgorithm>
+            <ReturnMinimumSelectionErrorNN>0</ReturnMinimumSelectionErrorNN>
+            <ApplyEarlyStopping>0</ApplyEarlyStopping>
+            <MinimumParametersIncrementNorm>1e-09</MinimumParametersIncrementNorm>
+            <MinimumPerformanceIncrease>1e-12</MinimumPerformanceIncrease>
+            <PerformanceGoal>1e-12</PerformanceGoal>
+            <GradientNormGoal>0.001</GradientNormGoal>
+            <MaximumSelectionLossDecreases>100</MaximumSelectionLossDecreases>
+            <MaximumIterationsNumber>1000</MaximumIterationsNumber>
+            <MaximumTime>3600</MaximumTime>
+            <ReserveParametersNormHistory>0</ReserveParametersNormHistory>
+            <ReservePerformanceHistory>1</ReservePerformanceHistory>
+            <ReserveSelectionLossHistory>1</ReserveSelectionLossHistory>
+            <ReserveGradientNormHistory>0</ReserveGradientNormHistory>
+        </Main>
+    </TrainingStrategy>
+    <ModelSelection>
+        <InputsSelection Type="GROWING_INPUTS">
+            <TrialsNumber>3</TrialsNumber>
+            <Tolerance>0.01</Tolerance>
+            <SelectionLossGoal>0</SelectionLossGoal>
+            <MaximumSelectionFailures>3</MaximumSelectionFailures>
+            <MinimumInputsNumber>1</MinimumInputsNumber>
+            <MaximumInputsNumber>3</MaximumInputsNumber>
+            <MinimumCorrelation>0</MinimumCorrelation>
+            <MaximumCorrelation>1</MaximumCorrelation>
+            <MaximumIterationsNumber>100</MaximumIterationsNumber>
+            <MaximumTime>3600</MaximumTime>
+            <ReservePerformanceHistory>1</ReservePerformanceHistory>
+            <ReserveSelectionLossHistory>1</ReserveSelectionLossHistory>
+        </InputsSelection>
+        <OrderSelection Type="INCREMENTAL_ORDER">
+            <MinimumOrder>1</MinimumOrder>
+            <MaximumOrder>10</MaximumOrder>
+            <Step>1</Step>
+            <TrialsNumber>3</TrialsNumber>
+            <Tolerance>0.01</Tolerance>
+            <SelectionLossGoal>0</SelectionLossGoal>
+            <MaximumSelectionFailures>5</MaximumSelectionFailures>
+            <MaximumTime>3600</MaximumTime>
+            <ReservePerformanceHistory>1</ReservePerformanceHistory>
+            <ReserveSelectionLossHistory>1</ReserveSelectionLossHistory>
+        </OrderSelection>
+        <ThresholdSelection Type="YOUDEN_INDEX">
+            <MinimumThreshold>0</MinimumThreshold>
+            <MaximumThreshold>1</MaximumThreshold>
+            <Step>0.01</Step>
+            <ReserveFunctionData>1</ReserveFunctionData>
+        </ThresholdSelection>
+    </ModelSelection>
+</NeuralDesignerProject>

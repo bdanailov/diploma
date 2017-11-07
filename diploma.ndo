@@ -1,0 +1,101 @@
+<NeuralDesignerOutput>
+ <Task Name="Report neural network" Id="pjjjva" Component="Neural network" Title="Neural network">
+  <Text Id="Itz172" Title="Task description">The neural networks represents the predictive model. In Neural Designer neural networks allow deep architectures, which are a class of universal approximator. </Text>
+  <Table Id="SsKUhH" Title="Inputs">
+   <Caption Id="tCDm6U">The number of inputs is 3. The next table depicts some basic information about them, including the name, the units and the description. </Caption>
+   <Data>variable_1\\
+variable_2\\
+variable_3\\</Data>
+   <RowsName>1\2\3</RowsName>
+   <ColumnsName>   Name   \   Units   \          Description          </ColumnsName>
+   <RowHeadingsWidth>3</RowHeadingsWidth>
+   <ColumnHeadingsWidth>12</ColumnHeadingsWidth>
+   <Alignment>left</Alignment>
+  </Table>
+  <Table Id="ZDbeiW" Title="Scaling layer">
+   <Caption Id="9XDrE9">The size of the scaling layer is 3, the number of inputs. The scaling method for this layer is the MinimumMaximum. The following table shows the values which are used for scaling the inputs, which include the minimum, maximum, mean and standard deviation. </Caption>
+   <Data>15\100\58.4\27.2
+15\98\54.7\25.9
+15\100\58\26</Data>
+   <RowsName>variable_1\variable_2\variable_3</RowsName>
+   <ColumnsName>Minimum\Maximum\Mean\Deviation</ColumnsName>
+   <RowHeadingsWidth>7</RowHeadingsWidth>
+   <ColumnHeadingsWidth>6</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+  <Table Id="RU0QV7" Title="Neural network">
+   <Caption Id="QyyiQd">The number of layers in the neural network is 2. The following table depicts the size of each layer and its corresponding activation function. The architecture of this neural network can be written as 3:10:3. </Caption>
+   <Data>3\10\Logistic
+10\3\Logistic</Data>
+   <RowsName>1\2</RowsName>
+   <ColumnsName>Inputs number\Neurons number\Activation function</ColumnsName>
+   <RowHeadingsWidth>5</RowHeadingsWidth>
+   <ColumnHeadingsWidth>14</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+  <Table Id="xJpA3v" Title="Neural network parameters">
+   <Caption Id="dd8EHo">The following table shows the statistics of the parameters of the neural network. The total number of parameters is 73. </Caption>
+   <Data>-0.991\0.973\0.0196\0.635</Data>
+   <RowsName>Statistics</RowsName>
+   <ColumnsName>Minimum\Maximum\Mean\Standard deviation</ColumnsName>
+   <RowHeadingsWidth>7</RowHeadingsWidth>
+   <ColumnHeadingsWidth>13</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+  <Text Id="iPJuGV" Title="Probabilistic layer">The size of the probabilistic layer is 3, the number of outputs. The probabilistic method for this layer is the competitive. </Text>
+  <Table Id="1fz13V" Title="Outputs table">
+   <Caption Id="6RR49r">The number of outputs is 3. The next table depicts some basic information about them, including the name, the units and the description. </Caption>
+   <Data>variable_4\\
+variable_5\\
+variable_6\\</Data>
+   <RowsName>1\2\3</RowsName>
+   <ColumnsName>   Name   \   Units   \          Description          </ColumnsName>
+   <RowHeadingsWidth>3</RowHeadingsWidth>
+   <ColumnHeadingsWidth>12</ColumnHeadingsWidth>
+   <Alignment>left</Alignment>
+  </Table>
+  <NeuralNetworkGraph Id="h68UFB" Title="Neural network graph">
+   <Caption Id="NsoU44">A graphical representation of the network architecture is depicted next. It contains a scaling layer, a neural network and a probabilistic layer. The yellow circles represent scaling neurons, the blue circles perceptron neurons and the red circles probabilistic neurons. The number of inputs is 3, and the number of outputs is 3. The complexity, represented by the numbers of hidden neurons, is 10. </Caption>
+   <ProjectType>Classification</ProjectType>
+   <PrincipalComponentsMethod>NoPrincipalComponents</PrincipalComponentsMethod>
+   <BoundingMethod>NoBounding</BoundingMethod>
+   <InputsName>variable_1\variable_2\variable_3</InputsName>
+   <Architecture>3\3\10\3\3</Architecture>
+   <OutputsName>variable_4\variable_5\variable_6</OutputsName>
+  </NeuralNetworkGraph>
+ </Task>
+ <Task Name="Calculate outputs" Id="9gqjBx" Component="Neural network" Title="Neural network outputs">
+  <Text Id="DstQbH" Title="Task description">A neural network produces a set of outputs for each set of inputs applied. The outputs depend, in turn, on the values of the parameters. </Text>
+  <Table Id="OGVDrs" Title="Inputs-outputs table">
+   <Caption Id="HV7KPB">The next table shows the input values and their corresponding output values. The input variables are variable_1, variable_2 and variable_3; and the output variables are variable_4, variable_5 and variable_6. </Caption>
+   <Data>58.3567
+54.66
+58.0167
+0
+1
+0</Data>
+   <RowsName>variable_1\variable_2\variable_3\variable_4\variable_5\variable_6</RowsName>
+   <ColumnsName>Value</ColumnsName>
+   <RowHeadingsWidth>7</RowHeadingsWidth>
+   <ColumnHeadingsWidth>9</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+ </Task>
+ <Task Name="Calculate outputs" Id="EAIxls" Component="Neural network" Title="Neural network outputs">
+  <Text Id="jWuRrb" Title="Task description">A neural network produces a set of outputs for each set of inputs applied. The outputs depend, in turn, on the values of the parameters. </Text>
+  <Table Id="8R1bWt" Title="Inputs-outputs table">
+   <Caption Id="prxvRa">The next table shows the input values and their corresponding output values. The input variables are variable_1, variable_2 and variable_3; and the output variables are variable_4, variable_5 and variable_6. </Caption>
+   <Data>58.3567
+19
+58.0167
+0
+1
+0</Data>
+   <RowsName>variable_1\variable_2\variable_3\variable_4\variable_5\variable_6</RowsName>
+   <ColumnsName>Value</ColumnsName>
+   <RowHeadingsWidth>7</RowHeadingsWidth>
+   <ColumnHeadingsWidth>9</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+ </Task>
+</NeuralDesignerOutput>
