@@ -52,4 +52,8 @@ def main():
     return 0
 
 if __name__ == '__main__':
+	if sys.argv[1]:
+		number = sys.argv[1]
+	else:
+		number = 150 
     main()
