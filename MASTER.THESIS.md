@@ -188,27 +188,27 @@ void loop() {
 
 Робота е базиран на платформата Arduino и ShieldBot.
 
-| ![Shield_Bot_V1.2_Foto_1.JPG](images/Shield_Bot_V1.2_Foto_1.JPG) | 
-|:--:| 
-| *ShiedlBot - Изглед отгоре* |
-
-| ![Position_for_seeeduino.jpg](images/Position_for_seeeduino.jpg) | 
-|:--:| 
-| *ShiedlBot - Изглед отдолу* |
-
-Добавени са 3 сензора за дистанция върху допълнителна платформа - модел *MB1010 LV-MaxSonar-EZ1*
-
-На фигура 1 е показана диаграма на робота:
-
 | ![robot-bigger.png](images/robot-bigger.png) |
 |:--:|
 | *Фигура 1* |
+
+Компонентите на робота са следните ( от Фигура 1 ):
+1. Колела
+2. Ел. мотори
+3. Сензори за дистанция - модел *MB1010 LV-MaxSonar-EZ1*
+4. Платформа ShieldBot
+5. Сферично колело
+6. Arduino Uno
+7. Батерия
+
+<!-- 
+
 
 | ![LV-EZ-Ultrasonic-Range-Finder.jpg](images/LV-EZ-Ultrasonic-Range-Finder.jpg) |
 |:--:|
 | *MB1010 LV-MaxSonar-EZ1* |
 
-
+ -->
 
 
 ## Софтуерна изисквания
