@@ -196,11 +196,20 @@ void loop() {
 |:--:| 
 | *ShiedlBot - Изглед отдолу* |
 
-В последсвие са добавени върху допълнителна платформа 3 сензора за дистанция, модел *MB1010 LV-MaxSonar-EZ1*
+Добавени са 3 сензора за дистанция върху допълнителна платформа - модел *MB1010 LV-MaxSonar-EZ1*
+
+На фигура 1 е показана диаграма на робота:
+
+| ![robot.png](images/robot.png) |
+|:--:|
+| *Фигура 1* |
 
 | ![LV-EZ-Ultrasonic-Range-Finder.jpg](images/LV-EZ-Ultrasonic-Range-Finder.jpg) |
 |:--:|
 | *MB1010 LV-MaxSonar-EZ1* |
+
+
+
 
 ## Софтуерна изисквания
 
