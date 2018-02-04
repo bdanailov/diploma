@@ -2,67 +2,87 @@
 <NeuralReaderProject ProjectType="Classification">
     <VariablesNumber>6</VariablesNumber>
     <Item Index="1">
-        <Name>variable_1</Name>
+        <Name>leftSensor</Name>
     </Item>
     <Item Index="2">
-        <Name>variable_2</Name>
+        <Name>middleSensor</Name>
     </Item>
     <Item Index="3">
-        <Name>variable_3</Name>
+        <Name>rightSensor</Name>
     </Item>
     <Item Index="4">
-        <Name>variable_4</Name>
+        <Name>left</Name>
     </Item>
     <Item Index="5">
-        <Name>variable_5</Name>
+        <Name>forward</Name>
     </Item>
     <Item Index="6">
-        <Name>variable_6</Name>
+        <Name>right</Name>
     </Item>
     <ColumnsName>
         <ColumnsNameSize>6</ColumnsNameSize>
-        <Item Index="1" Size="0"/>
-        <Item Index="2" Size="0"/>
-        <Item Index="3" Size="0"/>
-        <Item Index="4" Size="0"/>
-        <Item Index="5" Size="0"/>
-        <Item Index="6" Size="0"/>
+        <Item Index="1" Size="1">
+            <Value>leftSensor</Value>
+        </Item>
+        <Item Index="2" Size="1">
+            <Value>middleSensor</Value>
+        </Item>
+        <Item Index="3" Size="1">
+            <Value>rightSensor</Value>
+        </Item>
+        <Item Index="4" Size="1">
+            <Value>left</Value>
+        </Item>
+        <Item Index="5" Size="1">
+            <Value>forward</Value>
+        </Item>
+        <Item Index="6" Size="1">
+            <Value>right</Value>
+        </Item>
     </ColumnsName>
     <Header>
         <HeaderSize>6</HeaderSize>
-        <Name Index="1">80</Name>
-        <Name Index="2">37</Name>
-        <Name Index="3">68</Name>
-        <Name Index="4">0</Name>
-        <Name Index="5">1</Name>
-        <Name Index="6">0</Name>
+        <Name Index="1">leftSensor</Name>
+        <Name Index="2">middleSensor</Name>
+        <Name Index="3">rightSensor</Name>
+        <Name Index="4">left</Name>
+        <Name Index="5">forward</Name>
+        <Name Index="6">right</Name>
     </Header>
-    <InstancesNumber>300</InstancesNumber>
+    <InstancesNumber>100</InstancesNumber>
     <MissingValues>
         <MissingValuesNumber>0</MissingValuesNumber>
     </MissingValues>
     <PreviewData>
-        <PreviewSize>3</PreviewSize>
+        <PreviewSize>4</PreviewSize>
         <Item Index="1" Size="6">
-            <Value>80</Value>
-            <Value>37</Value>
-            <Value>68</Value>
-            <Value>0</Value>
-            <Value>1</Value>
-            <Value>0</Value>
+            <Value>leftSensor</Value>
+            <Value>middleSensor</Value>
+            <Value>rightSensor</Value>
+            <Value>left</Value>
+            <Value>forward</Value>
+            <Value>right</Value>
         </Item>
         <Item Index="2" Size="6">
-            <Value>16</Value>
-            <Value>44</Value>
+            <Value>60</Value>
+            <Value>35</Value>
             <Value>70</Value>
             <Value>0</Value>
-            <Value>0</Value>
             <Value>1</Value>
+            <Value>0</Value>
         </Item>
         <Item Index="3" Size="6">
-            <Value>40</Value>
-            <Value>91</Value>
-            <Value>84</Value>
+            <Value>53</Value>
+            <Value>76</Value>
+            <Value>15</Value>
+            <Value>1</Value>
+            <Value>0</Value>
+            <Value>0</Value>
+        </Item>
+        <Item Index="4" Size="6">
+            <Value>39</Value>
+            <Value>64</Value>
+            <Value>51</Value>
             <Value>0</Value>
             <Value>1</Value>
             <Value>0</Value>

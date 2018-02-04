@@ -1,101 +1,769 @@
 <NeuralDesignerOutput>
- <Task Name="Report neural network" Id="pjjjva" Component="Neural network" Title="Neural network">
-  <Text Id="Itz172" Title="Task description">The neural networks represents the predictive model. In Neural Designer neural networks allow deep architectures, which are a class of universal approximator. </Text>
-  <Table Id="SsKUhH" Title="Inputs">
-   <Caption Id="tCDm6U">The number of inputs is 3. The next table depicts some basic information about them, including the name, the units and the description. </Caption>
-   <Data>variable_1\\
-variable_2\\
-variable_3\\</Data>
+ <Task Title="Data set" Id="yVaEqM" Component="Data set" Name="Report data set">
+  <Text Title="Task description" Id="LIO5fp">The data set contains the information for creating the predictive model. It comprises a data matrix in which columns represent variables and rows represent instances.
+Variables in a data set can be of three types: The inputs will be the independent variables; the targets will be the dependent variables; the unused variables will neither be used as inputs nor as targets.
+Additionally, instances can be:
+Training instances, which are used to construct the model; selection instances, which are used for selecting the optimal order; testing instances, which are used to validate the functioning of the model; unused instances, which are not used at all.
+</Text>
+  <Table Title="Data preview table" Id="V9N3RH">
+   <Caption Id="hsknHE">The next table shows a preview of the data matrix contained in the file trainingData.csv. Here, the number of variables is 6, and the number of instances is 100. </Caption>
+   <Data>60\35\70\0\1\0
+53\76\15\1\0\0
+...\...\...\...\...\...
+39\64\51\0\1\0</Data>
+   <RowsName>1\2\...\100</RowsName>
+   <ColumnsName>leftSensor\middleSensor\rightSensor\left\forward\right</ColumnsName>
+   <RowHeadingsWidth>3</RowHeadingsWidth>
+   <ColumnHeadingsWidth>9</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+  <Table Title="Variables table" Id="E2bg71">
+   <Caption Id="q6WOKM">The following table depicts the names, units, descriptions and uses of all the variables in the data set. The numbers of inputs, targets and unused variables here are 3, 3, and 0, respectively. </Caption>
+   <Data>leftSensor\\\Input
+middleSensor\\\Input
+rightSensor\\\Input
+left\\\Target
+forward\\\Target
+right\\\Target</Data>
+   <RowsName>1\2\3\4\5\6</RowsName>
+   <ColumnsName>Name\Units\          Description          \Use</ColumnsName>
+   <RowHeadingsWidth>3</RowHeadingsWidth>
+   <ColumnHeadingsWidth>12</ColumnHeadingsWidth>
+   <Alignment>left</Alignment>
+  </Table>
+  <BarsChart Title="Variables bars chart" Id="ide7iI">
+   <Caption Id="uCPHFp">The next chart illustrates the variables use. It depicts the numbers of inputs (3), targets (3) and unused variables (0). </Caption>
+   <Data>0\3\3</Data>
+   <XTitle>Number</XTitle>
+   <Names>Unused variables\Target variables\Input variables</Names>
+   <Maximum>6</Maximum>
+  </BarsChart>
+  <PieChart Title="Instances pie chart" Id="WvhGiw">
+   <Caption Id="Vuw4Z3">The following pie chart details the uses of all the instances in the data set. The total number of instances is 100. The number of training instances is 60 (60%), the number of selection instances is 20 (20%), the number of testing instances is 20 (20%), and the number of unused instances is 0 (0%). </Caption>
+   <Data>60\20\20\0</Data>
+   <Names Id="6N7ajR">Training instances\Selection instances\Testing instances\Unused instances</Names>
+  </PieChart>
+  <Text Title="Missing values results" Id="xS2ZZl">There are not missing values in the data set. </Text>
+ </Task>
+ <Task Title="Target balancing" Id="5v1UYG" Component="Data set" Name="Balance targets distribution">
+  <Text Title="Task description" Id="UZAzP2">This task balances the distribution of target variables for a classification data set. It equals the number of instances of every target class by unusing those instances whose variables belong to the most populated bins. After this process, the distribution of the data will be more uniform and, in consequence, the model will probably be of better quality. Note that if the target distribution is very irregular then the number of instances to be unused could be big. </Text>
+  <PieChart Title="Target class distribution results" Id="7kVvR2">
+   <Caption Id="Q0SSv2">The number of unused instances has been set to 34. The next chart shows the number of instances belonging to each class in the data set. The number left, forward and right instances are 22, 22 and 22, respectively. </Caption>
+   <Data>22\22\22</Data>
+   <Names Id="ijmkLv">left\forward\right</Names>
+  </PieChart>
+ </Task>
+ <Task Title="Training" Id="gVlZv7" Component="Training strategy" Name="Perform training">
+  <Text Title="Task description" Id="6GjQDN">The procedure used to carry out the learning process is called training (or learning) strategy. The training strategy is applied to the neural network in order to obtain the best possible loss. The type of training is determined by the way in which the adjustment of the parameters in the neural network takes place. </Text>
+  <Text Title="Training algorithm" Id="VCO8tR">The quasi-Newton method is used here for training. It is based on Newton's method, but does not require calculation of second derivatives. Instead, the quasi-Newton method computes an approximation of the inverse Hessian at each iteration of the algorithm, by only using gradient information. </Text>
+  <DoubleLineChart Title="Quasi-Newton method losses history" Id="toC2vK">
+   <Caption Id="9hkDSb">The following plot shows the losses in each iteration. The initial value of the training loss is 0.0267354, and the final value after 19 iterations is 0.025681. The initial value of the selection loss is 0.00356601, and the final value after 19 iterations is 0.00337799. </Caption>
+   <X1Data>0\1\2\3\4\5\6\7\8\9\10\11\12\13\14\15\16\17\18\19</X1Data>
+   <X2Data>0\1\2\3\4\5\6\7\8\9\10\11\12\13\14\15\16\17\18\19</X2Data>
+   <Y1Data>0.026735\0.026475\0.026443\0.026353\0.026349\0.026295\0.026025\0.026\0.025993\0.025963\0.02592\0.025912\0.025898\0.025847\0.025739\0.025695\0.025689\0.025689\0.025684\0.025681</Y1Data>
+   <Y1Name>Training loss</Y1Name>
+   <Color1>#6A6AFF</Color1>
+   <Width1>1</Width1>
+   <Areas1>false</Areas1>
+   <Y2Data>0.003566\0.0042834\0.0041829\0.0051872\0.0050112\0.0060558\0.010899\0.011893\0.0098996\0.0064326\0.0034082\0.002902\0.0020579\0.0017188\0.0031074\0.0033662\0.0039636\0.0033686\0.003905\0.003378</Y2Data>
+   <Y2Name>Selection loss</Y2Name>
+   <Color2>#FF3939</Color2>
+   <Width2>1</Width2>
+   <Areas2>false</Areas2>
+   <Metadata/>
+   <MetadataName/>
+   <XLabel>Iteration</XLabel>
+   <YLabel>Loss</YLabel>
+   <XMinimum>0</XMinimum>
+   <XMaximum>19</XMaximum>
+   <YMinimum>0</YMinimum>
+   <YMaximum>0.1</YMaximum>
+  </DoubleLineChart>
+  <Table Title="Quasi-Newton method results" Id="QRbw85">
+   <Caption Id="w7GDTj">The next table shows the training results by the quasi-Newton method. They include some final states from the neural network, the loss functional and the training algorithm. </Caption>
+   <Data>24.5
+0.0257
+0.00338
+0.000989
+19
+1
+Gradient norm goal</Data>
+   <RowsName>Final parameters norm\Final loss\Final selection loss\Final gradient norm\Iterations number\Elapsed time\Stopping criterion</RowsName>
+   <ColumnsName>Value</ColumnsName>
+   <RowHeadingsWidth>15</RowHeadingsWidth>
+   <ColumnHeadingsWidth>20</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Directional output" Id="kwFWBy" Component="Neural network" Name="Plot directional output">
+  <Text Title="Task description" Id="N71G99">It is very useful to see the how the outputs vary as a function of a single input, when all the others are fixed. This can be seen as the cut of the neural network model along some input direction and through some reference point. </Text>
+  <Table Title="Reference point table" Id="QZ3QdA">
+   <Caption Id="0LRNie">The next table shows the reference point for the plots. </Caption>
+   <Data>49.7879
+53.9394
+53.9545</Data>
+   <RowsName>leftSensor\middleSensor\rightSensor</RowsName>
+   <ColumnsName>Value</ColumnsName>
+   <RowHeadingsWidth>9</RowHeadingsWidth>
+   <ColumnHeadingsWidth>5</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+  <LineChart Title="left against leftSensor directional line chart" Id="R7NBAq">
+   <Caption Id="qtl3Pw">The next plot shows the output left as a function of the input leftSensor. The x and y axes are defined by the range of the variables leftSensor and left, respectively. </Caption>
+   <XData>15\16.64\18.28\19.92\21.56\23.2\24.84\26.48\28.12\29.76\31.4\33.04\34.68\36.32\37.96\39.6\41.24\42.88\44.52\46.16\47.8\49.44\51.08\52.72\54.36\56\57.64\59.28\60.92\62.56\64.2\65.84\67.48\69.12\70.76\72.4\74.04\75.68\77.32\78.96\80.6\82.24\83.88\85.52\87.16\88.8\90.44\92.08\93.72\95.36\97</XData>
+   <YData>0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0</YData>
+   <Areas>false</Areas>
+   <XLabel>leftSensor</XLabel>
+   <YLabel>left</YLabel>
+   <XMinimum>15</XMinimum>
+   <XMaximum>97</XMaximum>
+   <YMinimum>-0.01</YMinimum>
+   <YMaximum>1.01</YMaximum>
+  </LineChart>
+  <LineChart Title="forward against leftSensor directional line chart" Id="1k1008">
+   <Caption Id="9OhAmJ">The next plot shows the output forward as a function of the input leftSensor. The x and y axes are defined by the range of the variables leftSensor and forward, respectively. </Caption>
+   <XData>15\16.64\18.28\19.92\21.56\23.2\24.84\26.48\28.12\29.76\31.4\33.04\34.68\36.32\37.96\39.6\41.24\42.88\44.52\46.16\47.8\49.44\51.08\52.72\54.36\56\57.64\59.28\60.92\62.56\64.2\65.84\67.48\69.12\70.76\72.4\74.04\75.68\77.32\78.96\80.6\82.24\83.88\85.52\87.16\88.8\90.44\92.08\93.72\95.36\97</XData>
+   <YData>0\0\0\0\0\0\0\0\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1</YData>
+   <Areas>false</Areas>
+   <XLabel>leftSensor</XLabel>
+   <YLabel>forward</YLabel>
+   <XMinimum>15</XMinimum>
+   <XMaximum>97</XMaximum>
+   <YMinimum>-0.01</YMinimum>
+   <YMaximum>1.01</YMaximum>
+  </LineChart>
+  <LineChart Title="right against leftSensor directional line chart" Id="Jmck7L">
+   <Caption Id="NZQkiZ">The next plot shows the output right as a function of the input leftSensor. The x and y axes are defined by the range of the variables leftSensor and right, respectively. </Caption>
+   <XData>15\16.64\18.28\19.92\21.56\23.2\24.84\26.48\28.12\29.76\31.4\33.04\34.68\36.32\37.96\39.6\41.24\42.88\44.52\46.16\47.8\49.44\51.08\52.72\54.36\56\57.64\59.28\60.92\62.56\64.2\65.84\67.48\69.12\70.76\72.4\74.04\75.68\77.32\78.96\80.6\82.24\83.88\85.52\87.16\88.8\90.44\92.08\93.72\95.36\97</XData>
+   <YData>1\1\1\1\1\1\1\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0</YData>
+   <Areas>false</Areas>
+   <XLabel>leftSensor</XLabel>
+   <YLabel>right</YLabel>
+   <XMinimum>15</XMinimum>
+   <XMaximum>97</XMaximum>
+   <YMinimum>-0.01</YMinimum>
+   <YMaximum>1.01</YMaximum>
+  </LineChart>
+  <LineChart Title="left against middleSensor directional line chart" Id="YYSJZp">
+   <Caption Id="DaaDbY">The next plot shows the output left as a function of the input middleSensor. The x and y axes are defined by the range of the variables middleSensor and left, respectively. </Caption>
+   <XData>15\16.68\18.36\20.04\21.72\23.4\25.08\26.76\28.44\30.12\31.8\33.48\35.16\36.84\38.52\40.2\41.88\43.56\45.24\46.92\48.6\50.28\51.96\53.64\55.32\57\58.68\60.36\62.04\63.72\65.4\67.08\68.76\70.44\72.12\73.8\75.48\77.16\78.84\80.52\82.2\83.88\85.56\87.24\88.92\90.6\92.28\93.96\95.64\97.32\99</XData>
+   <YData>0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0</YData>
+   <Areas>false</Areas>
+   <XLabel>middleSensor</XLabel>
+   <YLabel>left</YLabel>
+   <XMinimum>15</XMinimum>
+   <XMaximum>99</XMaximum>
+   <YMinimum>-0.01</YMinimum>
+   <YMaximum>1.01</YMaximum>
+  </LineChart>
+  <LineChart Title="forward against middleSensor directional line chart" Id="Liv1th">
+   <Caption Id="ICSuuX">The next plot shows the output forward as a function of the input middleSensor. The x and y axes are defined by the range of the variables middleSensor and forward, respectively. </Caption>
+   <XData>15\16.68\18.36\20.04\21.72\23.4\25.08\26.76\28.44\30.12\31.8\33.48\35.16\36.84\38.52\40.2\41.88\43.56\45.24\46.92\48.6\50.28\51.96\53.64\55.32\57\58.68\60.36\62.04\63.72\65.4\67.08\68.76\70.44\72.12\73.8\75.48\77.16\78.84\80.52\82.2\83.88\85.56\87.24\88.92\90.6\92.28\93.96\95.64\97.32\99</XData>
+   <YData>0\0\0\0\0\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1</YData>
+   <Areas>false</Areas>
+   <XLabel>middleSensor</XLabel>
+   <YLabel>forward</YLabel>
+   <XMinimum>15</XMinimum>
+   <XMaximum>99</XMaximum>
+   <YMinimum>-0.01</YMinimum>
+   <YMaximum>1.01</YMaximum>
+  </LineChart>
+  <LineChart Title="right against middleSensor directional line chart" Id="DH4czn">
+   <Caption Id="9YJbpt">The next plot shows the output right as a function of the input middleSensor. The x and y axes are defined by the range of the variables middleSensor and right, respectively. </Caption>
+   <XData>15\16.68\18.36\20.04\21.72\23.4\25.08\26.76\28.44\30.12\31.8\33.48\35.16\36.84\38.52\40.2\41.88\43.56\45.24\46.92\48.6\50.28\51.96\53.64\55.32\57\58.68\60.36\62.04\63.72\65.4\67.08\68.76\70.44\72.12\73.8\75.48\77.16\78.84\80.52\82.2\83.88\85.56\87.24\88.92\90.6\92.28\93.96\95.64\97.32\99</XData>
+   <YData>1\1\1\1\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0</YData>
+   <Areas>false</Areas>
+   <XLabel>middleSensor</XLabel>
+   <YLabel>right</YLabel>
+   <XMinimum>15</XMinimum>
+   <XMaximum>99</XMaximum>
+   <YMinimum>-0.01</YMinimum>
+   <YMaximum>1.01</YMaximum>
+  </LineChart>
+  <LineChart Title="left against rightSensor directional line chart" Id="O1RwE2">
+   <Caption Id="VXjQWa">The next plot shows the output left as a function of the input rightSensor. The x and y axes are defined by the range of the variables rightSensor and left, respectively. </Caption>
+   <XData>15\16.7\18.4\20.1\21.8\23.5\25.2\26.9\28.6\30.3\32\33.7\35.4\37.1\38.8\40.5\42.2\43.9\45.6\47.3\49\50.7\52.4\54.1\55.8\57.5\59.2\60.9\62.6\64.3\66\67.7\69.4\71.1\72.8\74.5\76.2\77.9\79.6\81.3\83\84.7\86.4\88.1\89.8\91.5\93.2\94.9\96.6\98.3\100</XData>
+   <YData>1\1\1\1\1\1\1\1\1\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0</YData>
+   <Areas>false</Areas>
+   <XLabel>rightSensor</XLabel>
+   <YLabel>left</YLabel>
+   <XMinimum>15</XMinimum>
+   <XMaximum>100</XMaximum>
+   <YMinimum>-0.01</YMinimum>
+   <YMaximum>1.01</YMaximum>
+  </LineChart>
+  <LineChart Title="forward against rightSensor directional line chart" Id="5okVhe">
+   <Caption Id="3sw7Ut">The next plot shows the output forward as a function of the input rightSensor. The x and y axes are defined by the range of the variables rightSensor and forward, respectively. </Caption>
+   <XData>15\16.7\18.4\20.1\21.8\23.5\25.2\26.9\28.6\30.3\32\33.7\35.4\37.1\38.8\40.5\42.2\43.9\45.6\47.3\49\50.7\52.4\54.1\55.8\57.5\59.2\60.9\62.6\64.3\66\67.7\69.4\71.1\72.8\74.5\76.2\77.9\79.6\81.3\83\84.7\86.4\88.1\89.8\91.5\93.2\94.9\96.6\98.3\100</XData>
+   <YData>0\0\0\0\0\0\0\0\0\0\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1</YData>
+   <Areas>false</Areas>
+   <XLabel>rightSensor</XLabel>
+   <YLabel>forward</YLabel>
+   <XMinimum>15</XMinimum>
+   <XMaximum>100</XMaximum>
+   <YMinimum>-0.01</YMinimum>
+   <YMaximum>1.01</YMaximum>
+  </LineChart>
+  <LineChart Title="right against rightSensor directional line chart" Id="sdPCCD">
+   <Caption Id="5bEUVQ">The next plot shows the output right as a function of the input rightSensor. The x and y axes are defined by the range of the variables rightSensor and right, respectively. </Caption>
+   <XData>15\16.7\18.4\20.1\21.8\23.5\25.2\26.9\28.6\30.3\32\33.7\35.4\37.1\38.8\40.5\42.2\43.9\45.6\47.3\49\50.7\52.4\54.1\55.8\57.5\59.2\60.9\62.6\64.3\66\67.7\69.4\71.1\72.8\74.5\76.2\77.9\79.6\81.3\83\84.7\86.4\88.1\89.8\91.5\93.2\94.9\96.6\98.3\100</XData>
+   <YData>0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0</YData>
+   <Areas>false</Areas>
+   <XLabel>rightSensor</XLabel>
+   <YLabel>right</YLabel>
+   <XMinimum>15</XMinimum>
+   <XMaximum>100</XMaximum>
+   <YMinimum>-0.01</YMinimum>
+   <YMaximum>1.01</YMaximum>
+  </LineChart>
+ </Task>
+ <Task Title="Python expression" Id="PIIJY2" Component="Neural network" Name="Export Python">
+  <Text Title="Task description" Id="Ujnx0f">The predictive model takes the form of a function of the outputs with respect to the inputs. The mathematical expression represented by the model can be exported to different programming languages, in the so called production mode. The Python programming language expression has been saved in the following file: /development/master.thesis/model.py</Text>
+ </Task>
+ <Task Title="Correlation matrix" Id="1Ylnxw" Component="Data set" Name="Calculate correlation matrix">
+  <Text Title="Task description" Id="eJ9i78">This task calculates the absolute values of the linear correlations among all inputs. The correlation is a numerical value between 0 and 1 that expresses the strength of the relationship between two variables. When it is close to 1 it indicates a strong relationship, and a value close to 0 indicates that there is no relationship. </Text>
+  <Table Title="Correlation matrix" Id="1X51a9">
+   <Caption Id="RmVenC">The following table shows the absolute value of the correlations between all input variables. The minimal correlation is 0.0266638 between the variables middleSensor and rightSensor. The maximal correlation is 0.236989 between the variables leftSensor and middleSensor. </Caption>
+   <Data>1\0.237\0.191
+\1\0.0267
+\\1</Data>
+   <RowsName>leftSensor\middleSensor\rightSensor</RowsName>
+   <ColumnsName>leftSensor\middleSensor\rightSensor</ColumnsName>
+   <RowHeadingsWidth>9</RowHeadingsWidth>
+   <ColumnHeadingsWidth>9</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Logistic correlations" Id="vo6KCE" Component="Data set" Name="Calculate logistic correlations">
+  <Text Title="Task description" Id="dJcNRz">In classification applications, it might be interesting to look for logistic dependencies between single input and single target variables. This task calculates the absolute values of the logistic correlation between all inputs and all targets. The logistic correlation is a numerical value between 0 and 1 that expresses the strength of the logistic relationship between a single input and output variables. When it is close to 1 it indicates a strong relationship. A value close to 0 indicates that there is no relationship. </Text>
+  <Table Title="Logistic correlations" Id="elbI7f">
+   <Caption Id="xq9usT">The following table shows the absolute value of the logistic correlations between all input and target variables. The maximum correlation (0.886938) is yield between the input variable leftSensor and the target variable right. </Caption>
+   <Data>0.51\0.41\0.887
+0.0948\0.334\0.0449
+0.759\0.235\0.38</Data>
+   <RowsName>leftSensor\middleSensor\rightSensor</RowsName>
+   <ColumnsName>left\forward\right</ColumnsName>
+   <RowHeadingsWidth>9</RowHeadingsWidth>
+   <ColumnHeadingsWidth>5</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+  <BarsChart Title="left bars chart" Id="0LTY85">
+   <Caption Id="h3tnL3">The next chart illustrates the dependency of the target left with all the input variables.
+ </Caption>
+   <Data>0.0948238\0.510115\0.75886</Data>
+   <XTitle>Logistic correlation</XTitle>
+   <Names>middleSensor\leftSensor\rightSensor</Names>
+   <Maximum>1</Maximum>
+  </BarsChart>
+  <BarsChart Title="forward bars chart" Id="1wMbJn">
+   <Caption Id="YvW9Eb">The next chart illustrates the dependency of the target forward with all the input variables.
+ </Caption>
+   <Data>0.235412\0.333616\0.409696</Data>
+   <XTitle>Logistic correlation</XTitle>
+   <Names>rightSensor\middleSensor\leftSensor</Names>
+   <Maximum>1</Maximum>
+  </BarsChart>
+  <BarsChart Title="right bars chart" Id="nBQw3I">
+   <Caption Id="N3bqaj">The next chart illustrates the dependency of the target right with all the input variables.
+ </Caption>
+   <Data>0.0449225\0.380249\0.886938</Data>
+   <XTitle>Logistic correlation</XTitle>
+   <Names>middleSensor\rightSensor\leftSensor</Names>
+   <Maximum>1</Maximum>
+  </BarsChart>
+ </Task>
+ <Task Title="Neural network" Id="Ug4Leo" Component="Neural network" Name="Report neural network">
+  <Text Title="Task description" Id="9lHgIF">The neural networks represents the predictive model. In Neural Designer neural networks allow deep architectures, which are a class of universal approximator. </Text>
+  <Table Title="Inputs" Id="fZ1zgf">
+   <Caption Id="oEKh7P">The number of inputs is 3. The next table depicts some basic information about them, including the name, the units and the description. </Caption>
+   <Data>leftSensor\\
+middleSensor\\
+rightSensor\\</Data>
    <RowsName>1\2\3</RowsName>
    <ColumnsName>   Name   \   Units   \          Description          </ColumnsName>
    <RowHeadingsWidth>3</RowHeadingsWidth>
    <ColumnHeadingsWidth>12</ColumnHeadingsWidth>
    <Alignment>left</Alignment>
   </Table>
-  <Table Id="ZDbeiW" Title="Scaling layer">
-   <Caption Id="9XDrE9">The size of the scaling layer is 3, the number of inputs. The scaling method for this layer is the MinimumMaximum. The following table shows the values which are used for scaling the inputs, which include the minimum, maximum, mean and standard deviation. </Caption>
-   <Data>15\100\58.4\27.2
-15\98\54.7\25.9
-15\100\58\26</Data>
-   <RowsName>variable_1\variable_2\variable_3</RowsName>
+  <Table Title="Scaling layer" Id="8M6WI8">
+   <Caption Id="7moB7S">The size of the scaling layer is 3, the number of inputs. The scaling method for this layer is the MinimumMaximum. The following table shows the values which are used for scaling the inputs, which include the minimum, maximum, mean and standard deviation. </Caption>
+   <Data>15\97\49.8\26.6
+15\99\53.9\27.1
+15\100\54\26.8</Data>
+   <RowsName>leftSensor\middleSensor\rightSensor</RowsName>
    <ColumnsName>Minimum\Maximum\Mean\Deviation</ColumnsName>
-   <RowHeadingsWidth>7</RowHeadingsWidth>
+   <RowHeadingsWidth>9</RowHeadingsWidth>
    <ColumnHeadingsWidth>6</ColumnHeadingsWidth>
    <Alignment>right</Alignment>
   </Table>
-  <Table Id="RU0QV7" Title="Neural network">
-   <Caption Id="QyyiQd">The number of layers in the neural network is 2. The following table depicts the size of each layer and its corresponding activation function. The architecture of this neural network can be written as 3:10:3. </Caption>
-   <Data>3\10\Logistic
-10\3\Logistic</Data>
-   <RowsName>1\2</RowsName>
+  <Table Title="Neural network" Id="zFDEvU">
+   <Caption Id="Ta1SZh">The number of layers in the neural network is 3. The following table depicts the size of each layer and its corresponding activation function. The architecture of this neural network can be written as 3:5:3:3. </Caption>
+   <Data>3\5\HyperbolicTangent
+5\3\Logistic
+3\3\Logistic</Data>
+   <RowsName>1\2\3</RowsName>
    <ColumnsName>Inputs number\Neurons number\Activation function</ColumnsName>
    <RowHeadingsWidth>5</RowHeadingsWidth>
    <ColumnHeadingsWidth>14</ColumnHeadingsWidth>
    <Alignment>right</Alignment>
   </Table>
-  <Table Id="xJpA3v" Title="Neural network parameters">
-   <Caption Id="dd8EHo">The following table shows the statistics of the parameters of the neural network. The total number of parameters is 73. </Caption>
-   <Data>-0.991\0.973\0.0196\0.635</Data>
+  <Table Title="Neural network parameters" Id="7MvP12">
+   <Caption Id="o7Nsdf">The following table shows the statistics of the parameters of the neural network. The total number of parameters is 50. </Caption>
+   <Data>-8.26\8.84\-0.43\3.48</Data>
    <RowsName>Statistics</RowsName>
    <ColumnsName>Minimum\Maximum\Mean\Standard deviation</ColumnsName>
    <RowHeadingsWidth>7</RowHeadingsWidth>
    <ColumnHeadingsWidth>13</ColumnHeadingsWidth>
    <Alignment>right</Alignment>
   </Table>
-  <Text Id="iPJuGV" Title="Probabilistic layer">The size of the probabilistic layer is 3, the number of outputs. The probabilistic method for this layer is the competitive. </Text>
-  <Table Id="1fz13V" Title="Outputs table">
-   <Caption Id="6RR49r">The number of outputs is 3. The next table depicts some basic information about them, including the name, the units and the description. </Caption>
-   <Data>variable_4\\
-variable_5\\
-variable_6\\</Data>
+  <Text Title="Probabilistic layer" Id="1kRptW">The size of the probabilistic layer is 3, the number of outputs. The probabilistic method for this layer is the competitive. </Text>
+  <Table Title="Outputs table" Id="GqlR4h">
+   <Caption Id="tVHvvp">The number of outputs is 3. The next table depicts some basic information about them, including the name, the units and the description. </Caption>
+   <Data>left\\
+forward\\
+right\\</Data>
    <RowsName>1\2\3</RowsName>
    <ColumnsName>   Name   \   Units   \          Description          </ColumnsName>
    <RowHeadingsWidth>3</RowHeadingsWidth>
    <ColumnHeadingsWidth>12</ColumnHeadingsWidth>
    <Alignment>left</Alignment>
   </Table>
-  <NeuralNetworkGraph Id="h68UFB" Title="Neural network graph">
-   <Caption Id="NsoU44">A graphical representation of the network architecture is depicted next. It contains a scaling layer, a neural network and a probabilistic layer. The yellow circles represent scaling neurons, the blue circles perceptron neurons and the red circles probabilistic neurons. The number of inputs is 3, and the number of outputs is 3. The complexity, represented by the numbers of hidden neurons, is 10. </Caption>
+  <NeuralNetworkGraph Title="Neural network graph" Id="c29WQA">
+   <Caption Id="WCIr5v">A graphical representation of the network architecture is depicted next. It contains a scaling layer, a neural network and a probabilistic layer. The yellow circles represent scaling neurons, the blue circles perceptron neurons and the red circles probabilistic neurons. The number of inputs is 3, and the number of outputs is 3. The complexity, represented by the numbers of hidden neurons, is 5:3. </Caption>
    <ProjectType>Classification</ProjectType>
    <PrincipalComponentsMethod>NoPrincipalComponents</PrincipalComponentsMethod>
    <BoundingMethod>NoBounding</BoundingMethod>
-   <InputsName>variable_1\variable_2\variable_3</InputsName>
-   <Architecture>3\3\10\3\3</Architecture>
-   <OutputsName>variable_4\variable_5\variable_6</OutputsName>
+   <InputsName>leftSensor\middleSensor\rightSensor</InputsName>
+   <Architecture>3\3\5\3\3\3</Architecture>
+   <OutputsName>left\forward\right</OutputsName>
   </NeuralNetworkGraph>
  </Task>
- <Task Name="Calculate outputs" Id="9gqjBx" Component="Neural network" Title="Neural network outputs">
-  <Text Id="DstQbH" Title="Task description">A neural network produces a set of outputs for each set of inputs applied. The outputs depend, in turn, on the values of the parameters. </Text>
-  <Table Id="OGVDrs" Title="Inputs-outputs table">
-   <Caption Id="HV7KPB">The next table shows the input values and their corresponding output values. The input variables are variable_1, variable_2 and variable_3; and the output variables are variable_4, variable_5 and variable_6. </Caption>
-   <Data>58.3567
-54.66
-58.0167
-0
-1
-0</Data>
-   <RowsName>variable_1\variable_2\variable_3\variable_4\variable_5\variable_6</RowsName>
+ <Task Title="Parameters norm" Id="3mu1JV" Component="Neural network" Name="Calculate parameters norm">
+  <Text Title="Task description" Id="LxRh6y">The norm of the parameters gives a clue about the complexity of the predictive model. If the parameters norm is small, the model will be smooth. On the other hand, if the parameters norm is very big, the model might become unstable. Also note that the norm depends on the number of parameters. </Text>
+  <Table Title="Parameters norm results" Id="IU82oQ">
+   <Caption Id="6KS2xL">The norm of the neural parameters is written below. The architecture of this neural network is 3:5:3:3, and the number of parameters is 50. </Caption>
+   <Data>24.5</Data>
+   <RowsName>Parameters norm</RowsName>
    <ColumnsName>Value</ColumnsName>
-   <RowHeadingsWidth>7</RowHeadingsWidth>
-   <ColumnHeadingsWidth>9</ColumnHeadingsWidth>
+   <RowHeadingsWidth>11</RowHeadingsWidth>
+   <ColumnHeadingsWidth>5</ColumnHeadingsWidth>
    <Alignment>right</Alignment>
   </Table>
  </Task>
- <Task Name="Calculate outputs" Id="EAIxls" Component="Neural network" Title="Neural network outputs">
-  <Text Id="jWuRrb" Title="Task description">A neural network produces a set of outputs for each set of inputs applied. The outputs depend, in turn, on the values of the parameters. </Text>
-  <Table Id="8R1bWt" Title="Inputs-outputs table">
-   <Caption Id="prxvRa">The next table shows the input values and their corresponding output values. The input variables are variable_1, variable_2 and variable_3; and the output variables are variable_4, variable_5 and variable_6. </Caption>
-   <Data>58.3567
-19
-58.0167
-0
-1
-0</Data>
-   <RowsName>variable_1\variable_2\variable_3\variable_4\variable_5\variable_6</RowsName>
-   <ColumnsName>Value</ColumnsName>
+ <Task Title="Parameters statistics" Id="6Mfcnd" Component="Neural network" Name="Calculate parameters statistics">
+  <Text Title="Task description" Id="ZrZry5">The statistics of the parameters depict information about the complexity of the model. In general, it is desirable that all the minimum, maximum, mean and standard deviation values are not very big. </Text>
+  <Table Title="Parameters statistics table" Id="W0s6Vp">
+   <Caption Id="cfoWDP">The table below shows the minimum, maximum, mean and standard deviation of the parameters in the neural network. </Caption>
+   <Data>-8.25648\8.83799\-0.430214\3.47992</Data>
+   <RowsName>Parameters</RowsName>
+   <ColumnsName>Minimum\Maximum\Mean\Deviation</ColumnsName>
    <RowHeadingsWidth>7</RowHeadingsWidth>
+   <ColumnHeadingsWidth>6</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Parameters histogram" Id="P9hx9H" Component="Neural network" Name="Calculate parameters histogram">
+  <Text Title="Description" Id="RFGMuC">The histogram of the parameters shows how they are distributed. A regular distribution for the parameters is, in general, desirable. If the parameters are very irregularly distributed, then the model is probably unstable. </Text>
+  <HistogramChart Title="Parameters histogram chart" Id="zTAdgM">
+   <Caption Id="vNEGb4">The following chart shows the histogram for the parameters. The abscissa represents the centers of the containers, and the ordinate their corresponding frequencies. The minimum frequency is 1, which corresponds to the bins with centers -5.69231 and 6.27382. The maximum frequency is 11, which corresponds to the bin with center 1.14548. </Caption>
+   <Name>Parameters</Name>
+   <Centers>-7.4\-5.7\-4\-2.3\-0.56\1.1\2.9\4.6\6.3\8</Centers>
+   <Frequencies>2\1\7\10\9\11\5\2\1\2</Frequencies>
+   <Minimums>-8.2565\-6.547\-4.8376\-3.1281\-1.4187\0.29076\2.0002\3.7096\5.4191\7.1285</Minimums>
+   <Maximums>-6.547\-4.8376\-3.1281\-1.4187\0.29076\2.0002\3.7096\5.4191\7.1285\8.838</Maximums>
+   <Maximum>11</Maximum>
+  </HistogramChart>
+ </Task>
+ <Task Title="Outputs histogram" Id="9x5YI5" Component="Neural network" Name="Calculate outputs histogram">
+  <Text Title="Description" Id="1RI73a">The histogram of the outputs shows how they are distributed. This method takes 1000 random instances and calculate the histogram with its outputs.</Text>
+  <HistogramChart Title="left histogram" Id="qzFrAb">
+   <Caption Id="FRmw9t">The following chart shows the histogram for the output left. The abscissa represents the centers of the containers, and the ordinate their corresponding frequencies. The minimum frequency is 221, which corresponds to the bin with center 1. The maximum frequency is 779, which corresponds to the bin with center 0. </Caption>
+   <Name>Parameters</Name>
+   <Centers>0\1</Centers>
+   <Frequencies>779\221</Frequencies>
+   <Minimums>0\1</Minimums>
+   <Maximums>0\1</Maximums>
+   <Maximum>779</Maximum>
+  </HistogramChart>
+  <HistogramChart Title="forward histogram" Id="8ytg9y">
+   <Caption Id="nItso9">The following chart shows the histogram for the output forward. The abscissa represents the centers of the containers, and the ordinate their corresponding frequencies. The minimum frequency is 422, which corresponds to the bin with center 0. The maximum frequency is 578, which corresponds to the bin with center 1. </Caption>
+   <Name>Parameters</Name>
+   <Centers>0\1</Centers>
+   <Frequencies>422\578</Frequencies>
+   <Minimums>0\1</Minimums>
+   <Maximums>0\1</Maximums>
+   <Maximum>578</Maximum>
+  </HistogramChart>
+  <HistogramChart Title="right histogram" Id="wqYEvc">
+   <Caption Id="mjb1bj">The following chart shows the histogram for the output right. The abscissa represents the centers of the containers, and the ordinate their corresponding frequencies. The minimum frequency is 201, which corresponds to the bin with center 1. The maximum frequency is 799, which corresponds to the bin with center 0. </Caption>
+   <Name>Parameters</Name>
+   <Centers>0\1</Centers>
+   <Frequencies>799\201</Frequencies>
+   <Minimums>0\1</Minimums>
+   <Maximums>0\1</Maximums>
+   <Maximum>799</Maximum>
+  </HistogramChart>
+ </Task>
+ <Task Title="Loss index" Id="tmGv00" Component="Loss index" Name="Report loss index">
+  <Text Title="Task description" Id="cBOKef">The loss index plays an important role in the use of a neural network. It defines the task the neural network is required to do, and provides a measure of the quality of the representation that it is required to learn. The choice of a suitable loss index depends on the particular application. </Text>
+  <Text Title="Error method" Id="lW1fAp">The normalized squared error is used here as the error method. It divides the squared error between the outputs from the neural network and the targets in the data set by a normalization coefficient. If the normalized squared error has a value of unity then the neural network is predicting the data 'in the mean', while a value of zero means perfect prediction of the data. </Text>
+  <Table Title="Regularization method" Id="qrQ808">
+   <Caption Id="DHBvjK">The neural parameters norm is used as the regularization method. Is is applied to control the complexity of the neural network by reducing the value of the parameters. The following table shows the weight of this regularization term in the loss expression. </Caption>
+   <Data>0.001</Data>
+   <RowsName>Neural parameters norm weight</RowsName>
+   <ColumnsName>Value</ColumnsName>
+   <RowHeadingsWidth>21</RowHeadingsWidth>
+   <ColumnHeadingsWidth>6</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Training strategy" Id="Od7dW7" Component="Training strategy" Name="Report training strategy">
+  <Text Title="Task description" Id="d8GzSs">The procedure used to carry out the learning process is called training (or learning) strategy. The training strategy is applied to the neural network in order to obtain the best possible loss. </Text>
+  <Table Title="Training algorithm" Id="eBOerX">
+   <Caption Id="TfOrmM">The quasi-Newton method is used here as training algorithm. It is based on Newton's method, but does not require calculation of second derivatives. Instead, the quasi-Newton method computes an approximation of the inverse Hessian at each iteration of the algorithm, by only using gradient information. </Caption>
+   <Data>Method used to obtain a suitable training rate.\BFGS
+Method used to calculate the step for the quasi-Newton training direction.\BrentMethod
+Maximum interval length for the training rate.\0.005
+Norm of the parameters increment vector at which training stops.\1e-09
+Minimum loss improvement between two successive iterations.\1e-12
+Goal value for the loss.\1e-12
+Goal value for the norm of the objective function gradient.\0.001
+Maximum number of iterations at which the selection loss increases.\100
+Maximum number of iterations to perform the training.\1000
+Maximum training time.\3600
+Plot a graph with the parameters norm of each iteration.\false
+Plot a graph with the loss of each iteration.\true
+Plot a graph with the selection loss of each iteration.\true
+Plot a graph with the gradient norm of each iteration.\false</Data>
+   <RowsName>Inverse Hessian approximation method\Training rate method\Training rate tolerance\Minimum parameters increment norm\Minimum loss increase\Performance goal\Gradient norm goal\Maximum selection loss increases\Maximum iterations number\Maximum time\Reserve parameters norm history\Reserve loss history\Reserve selection loss history\Reserve gradient norm history</RowsName>
+   <ColumnsName>Description\Value</ColumnsName>
+   <RowHeadingsWidth>27</RowHeadingsWidth>
+   <ColumnHeadingsWidth>25</ColumnHeadingsWidth>
+   <Alignment>center</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Model selection" Id="Z3Vv3b" Component="Model selection" Name="Report model selection">
+  <Text Title="Task description" Id="BBoaNg">Model selection is applied to find a neural network with a topology that optimizes the loss on new data. There are two different types of algorithms for model selection: Order selection algorithms and input selection algorithms. Order selection algorithms are used to find the optimal number of hidden neurons in the network. Inputs selection algorithms are responsible for finding the optimal subset of input variables. </Text>
+  <Table Title="Inputs selection algorithm" Id="j6qzYF">
+   <Caption Id="MRLkFM">The inputs selection algorithm chosen for this application is growing inputs. With this method, the inputs are added progressively based on their correlations with the targets. </Caption>
+   <Data>Number of trials for each neural network.\3
+Tolerance for the selection loss in the trainings of the algorithm.\0.01
+Goal value for the selection loss.\0
+Maximum number of iterations at which the selection loss increases.\3
+Maximum number of inputs in the neural network.\3
+Minimum value for the correlations to be considered.\0
+Maximum value for the correlations to be considered.\1
+Maximum number of iterations to perform the algorithm.\100
+Maximum time for the inputs selection algorithm.\3600
+Plot a graph with the training losses of each iteration.\true
+Plot a graph with the selection losses of each iteration.\true</Data>
+   <RowsName>Trials number\Tolerance\Selection loss goal\Maximum selection failures\Maximum inputs number\Minimum correlation\Maximum correlation\Maximum iterations number\Maximum time\Plot training loss history\Plot selection loss history</RowsName>
+   <ColumnsName>Description\Value</ColumnsName>
+   <RowHeadingsWidth>20</RowHeadingsWidth>
+   <ColumnHeadingsWidth>25</ColumnHeadingsWidth>
+   <Alignment>center</Alignment>
+  </Table>
+  <Table Title="Order selection algorithm" Id="nqyUzX">
+   <Caption Id="2YYYTb">The order selection algorithm chosen for this application is incremental order. This method start with the minimum order and adds a given number of perceptrons in each iteration. </Caption>
+   <Data>Number of minimum hidden perceptrons to be evaluated.\1
+Number of maximum hidden perceptrons to be evaluated.\10
+Number of hidden perceptrons added in each iteration.\1
+Number of trials for each neural network.\3
+Tolerance for the selection loss in the trainings of the algorithm.\0.01
+Goal value for the selection loss.\0
+Maximum number of iterations at which the selection loss increases.\5
+Maximum number of iterations to perform the algorithm.\1000
+Maximum time for the order selection algorithm.\3600
+Plot a graph with the training losses of each iteration.\true
+Plot a graph with the selection losses of each iteration.\true</Data>
+   <RowsName>Minimum order\Maximum order\Step\Trials number\Tolerance\Selection loss goal\Maximum selection failures\Maximum iterations number\Maximum time\Plot training loss history\Plot selection loss history</RowsName>
+   <ColumnsName>Description\Value</ColumnsName>
+   <RowHeadingsWidth>20</RowHeadingsWidth>
+   <ColumnHeadingsWidth>25</ColumnHeadingsWidth>
+   <Alignment>center</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Inputs importance" Id="iGwGxb" Component="Model selection" Name="Calculate inputs importance">
+  <Text Title="Task description" Id="qx2IkU">This task calculates the selection loss when removing one input at a time. This shows which input have more influence in the outputs. </Text>
+  <Table Title="Inputs importance results" Id="knuwQB">
+   <Caption Id="dGvdwY">The next table shows the importance of each input. If the importance takes a value greater than 1 for an input, it means that the selection error without that input is greater than with it. In the case that the importance is lower than 1, the selection error is lower without using that input. Finally, if the importance is 1, there is no difference between using the current input and not using it. 
+ The most important variable is leftSensor, that gets a contribution of 193.3% to the outputs. </Caption>
+   <Data>1.93
+1.46
+1.11</Data>
+   <RowsName>leftSensor\middleSensor\rightSensor</RowsName>
+   <ColumnsName>Contribution</ColumnsName>
+   <RowHeadingsWidth>18</RowHeadingsWidth>
    <ColumnHeadingsWidth>9</ColumnHeadingsWidth>
    <Alignment>right</Alignment>
   </Table>
+  <BarsChart Title="Contribution bars chart" Id="G8UGbd">
+   <Caption Id="50zUj2">The next chart illustrates the contribution of each input.
+ </Caption>
+   <Data>1.11124\1.4625\1.9333</Data>
+   <XTitle>Contribution</XTitle>
+   <Names>rightSensor\middleSensor\leftSensor</Names>
+   <Maximum>2</Maximum>
+  </BarsChart>
+ </Task>
+ <Task Title="Inputs selection" Id="Mc6Ukl" Component="Model selection" Name="Perform inputs selection">
+  <Text Title="Task description" Id="B7YZob">Some data sets have inputs that are redundants and it affects the loss of the neural network. The inputs selection are used to find the optimal subset of inputs for the best loss of the model. </Text>
+  <Text Title="Inputs selection algorithm" Id="7GCW3h">Growing inputs is used here as inputs selection algorithm in the model selection. </Text>
+  <DoubleLineChart Title="Growing inputs losses plot" Id="AqMEyf">
+   <Caption Id="QY6zq3">The next chart shows the loss history for the different subsets during the growing inputs selection process. The blue line represents the training loss and the red line symbolizes the selection loss. </Caption>
+   <X1Data>1\2\3</X1Data>
+   <X2Data>1\2\3</X2Data>
+   <Y1Data>0.39387\0.034201\0.023556</Y1Data>
+   <Y1Name>Training loss</Y1Name>
+   <Color1>#6A6AFF</Color1>
+   <Width1>1</Width1>
+   <Areas1>false</Areas1>
+   <Y2Data>0.39247\0.24353\0.0033118</Y2Data>
+   <Y2Name>Selection loss</Y2Name>
+   <Color2>#FF3939</Color2>
+   <Width2>1</Width2>
+   <Areas2>false</Areas2>
+   <Metadata/>
+   <MetadataName/>
+   <XLabel>Iteration</XLabel>
+   <YLabel>Loss</YLabel>
+   <XMinimum>1</XMinimum>
+   <XMaximum>3</XMaximum>
+   <YMinimum>0</YMinimum>
+   <YMaximum>1</YMaximum>
+  </DoubleLineChart>
+  <Table Title="Growing inputs results" Id="Kt7e2c">
+   <Caption Id="TVqNKJ">The next table shows the inputs selection results by the growing inputs algorithm. They include some final states from the neural network, the loss functional and the inputs selection algorithm. </Caption>
+   <Data>3
+0.0235556
+0.00331181
+3
+2</Data>
+   <RowsName>Optimal number of inputs\Optimum training loss\Optimum selection loss\Iterations number\Elapsed time</RowsName>
+   <ColumnsName>Value</ColumnsName>
+   <RowHeadingsWidth>18</RowHeadingsWidth>
+   <ColumnHeadingsWidth>6</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+  <NeuralNetworkGraph Title="Final architecture" Id="BRXMvY">
+   <Caption Id="13POHL">A graphical representation of the resulted deep architecture is depicted next. It contains a scaling layer, a neural network and a probabilistic layer. The yellow circles represent scaling neurons, the blue circles perceptron neurons and the red circles probabilistic neurons. The number of inputs is 3, and the number of outputs is 3. The complexity, represented by the numbers of hidden neurons, is 5:3. </Caption>
+   <ProjectType>Classification</ProjectType>
+   <PrincipalComponentsMethod>NoPrincipalComponents</PrincipalComponentsMethod>
+   <BoundingMethod/>
+   <InputsName>leftSensor\middleSensor\rightSensor</InputsName>
+   <Architecture>3\3\5\3\3\3</Architecture>
+   <OutputsName>left\forward\right</OutputsName>
+  </NeuralNetworkGraph>
+ </Task>
+ <Task Title="Order selection" Id="ug8u53" Component="Model selection" Name="Perform order selection">
+  <Text Title="Task description" Id="fJ3Jak">The best selection is achieved by using a model whose complexity is the most appropriate to produce an adequate fit of the data. The order selection algorithm is responsible of finding the optimal number of neurons in the network. </Text>
+  <Text Title="Order selection algorithm" Id="a48PPT">Incremental order is used here as order selection algorithm in the model selection. </Text>
+  <DoubleLineChart Title="Incremental order losses plot" Id="SmDBWI">
+   <Caption Id="dmfhYU">The next chart shows the loss history for the different subsets during the incremental order selection process. The blue line represents the training loss and the red line symbolizes the selection loss. </Caption>
+   <X1Data>1\2\3\4\5\6\7\8\9\10</X1Data>
+   <X2Data>1\2\3\4\5\6\7\8\9\10</X2Data>
+   <Y1Data>0.32277\0.025843\0.024976\0.021975\0.02123\0.02123\0.035088\0.021824\0.020709\0.021037</Y1Data>
+   <Y1Name>Training loss</Y1Name>
+   <Color1>#6A6AFF</Color1>
+   <Width1>1</Width1>
+   <Areas1>false</Areas1>
+   <Y2Data>0.52194\0.0056716\0.61102\0.0030367\0.003031\0.011562\0.12091\0.0063639\0.020925\0.18768</Y2Data>
+   <Y2Name>Selection loss</Y2Name>
+   <Color2>#FF3939</Color2>
+   <Width2>1</Width2>
+   <Areas2>false</Areas2>
+   <Metadata/>
+   <MetadataName/>
+   <XLabel>Order</XLabel>
+   <YLabel>Loss</YLabel>
+   <XMinimum>1</XMinimum>
+   <XMaximum>10</XMaximum>
+   <YMinimum>0</YMinimum>
+   <YMaximum>1</YMaximum>
+  </DoubleLineChart>
+  <Table Title="Incremental order results" Id="WcP6W2">
+   <Caption Id="MTRevn">The next table shows the order selection results by the incremental order algorithm. They include some final states from the neural network, the loss functional and the order selection algorithm. </Caption>
+   <Data>2
+0.0258428
+0.00567164
+10
+4</Data>
+   <RowsName>Optimal order\Optimum training loss\Optimum selection loss\Iterations number\Elapsed time</RowsName>
+   <ColumnsName>Value</ColumnsName>
+   <RowHeadingsWidth>16</RowHeadingsWidth>
+   <ColumnHeadingsWidth>6</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+  <NeuralNetworkGraph Title="Final architecture" Id="fVrntG">
+   <Caption Id="GJ2RUW">A graphical representation of the resulted deep architecture is depicted next. It contains a scaling layer, a neural network and a probabilistic layer. The yellow circles represent scaling neurons, the blue circles perceptron neurons and the red circles probabilistic neurons. The number of inputs is 3, and the number of outputs is 3. The complexity, represented by the numbers of hidden neurons, is 5:2. </Caption>
+   <ProjectType>Classification</ProjectType>
+   <PrincipalComponentsMethod>NoPrincipalComponents</PrincipalComponentsMethod>
+   <BoundingMethod/>
+   <InputsName>leftSensor\middleSensor\rightSensor</InputsName>
+   <Architecture>3\3\5\2\3\3</Architecture>
+   <OutputsName>left\forward\right</OutputsName>
+  </NeuralNetworkGraph>
+ </Task>
+ <Task Title="Neural network" Id="nfT92z" Component="Neural network" Name="Report neural network">
+  <Text Title="Task description" Id="9asPQr">The neural networks represents the predictive model. In Neural Designer neural networks allow deep architectures, which are a class of universal approximator. </Text>
+  <Table Title="Inputs" Id="ibrcLp">
+   <Caption Id="XULzcA">The number of inputs is 3. The next table depicts some basic information about them, including the name, the units and the description. </Caption>
+   <Data>leftSensor\\
+middleSensor\\
+rightSensor\\</Data>
+   <RowsName>1\2\3</RowsName>
+   <ColumnsName>   Name   \   Units   \          Description          </ColumnsName>
+   <RowHeadingsWidth>3</RowHeadingsWidth>
+   <ColumnHeadingsWidth>12</ColumnHeadingsWidth>
+   <Alignment>left</Alignment>
+  </Table>
+  <Table Title="Scaling layer" Id="X6XzFX">
+   <Caption Id="j3AAAC">The size of the scaling layer is 3, the number of inputs. The scaling method for this layer is the MinimumMaximum. The following table shows the values which are used for scaling the inputs, which include the minimum, maximum, mean and standard deviation. </Caption>
+   <Data>15\97\49.8\26.6
+15\99\53.9\27.1
+15\100\54\26.8</Data>
+   <RowsName>leftSensor\middleSensor\rightSensor</RowsName>
+   <ColumnsName>Minimum\Maximum\Mean\Deviation</ColumnsName>
+   <RowHeadingsWidth>9</RowHeadingsWidth>
+   <ColumnHeadingsWidth>6</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+  <Table Title="Neural network" Id="AJl2gB">
+   <Caption Id="sNmhx5">The number of layers in the neural network is 3. The following table depicts the size of each layer and its corresponding activation function. The architecture of this neural network can be written as 3:5:2:3. </Caption>
+   <Data>3\5\HyperbolicTangent
+5\2\Logistic
+2\3\Logistic</Data>
+   <RowsName>1\2\3</RowsName>
+   <ColumnsName>Inputs number\Neurons number\Activation function</ColumnsName>
+   <RowHeadingsWidth>5</RowHeadingsWidth>
+   <ColumnHeadingsWidth>14</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+  <Table Title="Neural network parameters" Id="WVZpU9">
+   <Caption Id="x0DVzT">The following table shows the statistics of the parameters of the neural network. The total number of parameters is 41. </Caption>
+   <Data>-8.23\8.11\-0.261\3.71</Data>
+   <RowsName>Statistics</RowsName>
+   <ColumnsName>Minimum\Maximum\Mean\Standard deviation</ColumnsName>
+   <RowHeadingsWidth>7</RowHeadingsWidth>
+   <ColumnHeadingsWidth>13</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+  <Text Title="Probabilistic layer" Id="0gUAre">The size of the probabilistic layer is 3, the number of outputs. The probabilistic method for this layer is the competitive. </Text>
+  <Table Title="Outputs table" Id="Kzv3zZ">
+   <Caption Id="ErwyYs">The number of outputs is 3. The next table depicts some basic information about them, including the name, the units and the description. </Caption>
+   <Data>left\\
+forward\\
+right\\</Data>
+   <RowsName>1\2\3</RowsName>
+   <ColumnsName>   Name   \   Units   \          Description          </ColumnsName>
+   <RowHeadingsWidth>3</RowHeadingsWidth>
+   <ColumnHeadingsWidth>12</ColumnHeadingsWidth>
+   <Alignment>left</Alignment>
+  </Table>
+  <NeuralNetworkGraph Title="Neural network graph" Id="12Napp">
+   <Caption Id="inpvGn">A graphical representation of the network architecture is depicted next. It contains a scaling layer, a neural network and a probabilistic layer. The yellow circles represent scaling neurons, the blue circles perceptron neurons and the red circles probabilistic neurons. The number of inputs is 3, and the number of outputs is 3. The complexity, represented by the numbers of hidden neurons, is 5:2. </Caption>
+   <ProjectType>Classification</ProjectType>
+   <PrincipalComponentsMethod>NoPrincipalComponents</PrincipalComponentsMethod>
+   <BoundingMethod>NoBounding</BoundingMethod>
+   <InputsName>leftSensor\middleSensor\rightSensor</InputsName>
+   <Architecture>3\3\5\2\3\3</Architecture>
+   <OutputsName>left\forward\right</OutputsName>
+  </NeuralNetworkGraph>
+ </Task>
+ <Task Title="Parameters norm" Id="tBlavV" Component="Neural network" Name="Calculate parameters norm">
+  <Text Title="Task description" Id="xbMe37">The norm of the parameters gives a clue about the complexity of the predictive model. If the parameters norm is small, the model will be smooth. On the other hand, if the parameters norm is very big, the model might become unstable. Also note that the norm depends on the number of parameters. </Text>
+  <Table Title="Parameters norm results" Id="DW0yVz">
+   <Caption Id="78Yt3s">The norm of the neural parameters is written below. The architecture of this neural network is 3:5:2:3, and the number of parameters is 41. </Caption>
+   <Data>23.5</Data>
+   <RowsName>Parameters norm</RowsName>
+   <ColumnsName>Value</ColumnsName>
+   <RowHeadingsWidth>11</RowHeadingsWidth>
+   <ColumnHeadingsWidth>5</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Parameters norm" Id="8Y6eVM" Component="Neural network" Name="Calculate parameters norm">
+  <Text Title="Task description" Id="h4d8ah">The norm of the parameters gives a clue about the complexity of the predictive model. If the parameters norm is small, the model will be smooth. On the other hand, if the parameters norm is very big, the model might become unstable. Also note that the norm depends on the number of parameters. </Text>
+  <Table Title="Parameters norm results" Id="C7f0FZ">
+   <Caption Id="ufnjGn">The norm of the neural parameters is written below. The architecture of this neural network is 3:5:2:3, and the number of parameters is 41. </Caption>
+   <Data>23.5</Data>
+   <RowsName>Parameters norm</RowsName>
+   <ColumnsName>Value</ColumnsName>
+   <RowHeadingsWidth>11</RowHeadingsWidth>
+   <ColumnHeadingsWidth>5</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Parameters statistics" Id="hhy4xr" Component="Neural network" Name="Calculate parameters statistics">
+  <Text Title="Task description" Id="45hrF3">The statistics of the parameters depict information about the complexity of the model. In general, it is desirable that all the minimum, maximum, mean and standard deviation values are not very big. </Text>
+  <Table Title="Parameters statistics table" Id="5SzeaI">
+   <Caption Id="H5WTse">The table below shows the minimum, maximum, mean and standard deviation of the parameters in the neural network. </Caption>
+   <Data>-8.23083\8.11208\-0.260997\3.70693</Data>
+   <RowsName>Parameters</RowsName>
+   <ColumnsName>Minimum\Maximum\Mean\Deviation</ColumnsName>
+   <RowHeadingsWidth>7</RowHeadingsWidth>
+   <ColumnHeadingsWidth>6</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Loss index" Id="7BnYOd" Component="Loss index" Name="Report loss index">
+  <Text Title="Task description" Id="FWalTL">The loss index plays an important role in the use of a neural network. It defines the task the neural network is required to do, and provides a measure of the quality of the representation that it is required to learn. The choice of a suitable loss index depends on the particular application. </Text>
+  <Text Title="Error method" Id="fpnbEh">The normalized squared error is used here as the error method. It divides the squared error between the outputs from the neural network and the targets in the data set by a normalization coefficient. If the normalized squared error has a value of unity then the neural network is predicting the data 'in the mean', while a value of zero means perfect prediction of the data. </Text>
+  <Table Title="Regularization method" Id="8Hc6RB">
+   <Caption Id="CcgYbO">The neural parameters norm is used as the regularization method. Is is applied to control the complexity of the neural network by reducing the value of the parameters. The following table shows the weight of this regularization term in the loss expression. </Caption>
+   <Data>0.001</Data>
+   <RowsName>Neural parameters norm weight</RowsName>
+   <ColumnsName>Value</ColumnsName>
+   <RowHeadingsWidth>21</RowHeadingsWidth>
+   <ColumnHeadingsWidth>6</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Training strategy" Id="SiZEEw" Component="Training strategy" Name="Report training strategy">
+  <Text Title="Task description" Id="pSSPDv">The procedure used to carry out the learning process is called training (or learning) strategy. The training strategy is applied to the neural network in order to obtain the best possible loss. </Text>
+  <Table Title="Training algorithm" Id="jqjWPv">
+   <Caption Id="DYDocc">The quasi-Newton method is used here as training algorithm. It is based on Newton's method, but does not require calculation of second derivatives. Instead, the quasi-Newton method computes an approximation of the inverse Hessian at each iteration of the algorithm, by only using gradient information. </Caption>
+   <Data>Method used to obtain a suitable training rate.\BFGS
+Method used to calculate the step for the quasi-Newton training direction.\BrentMethod
+Maximum interval length for the training rate.\0.005
+Norm of the parameters increment vector at which training stops.\1e-09
+Minimum loss improvement between two successive iterations.\1e-12
+Goal value for the loss.\1e-12
+Goal value for the norm of the objective function gradient.\0.001
+Maximum number of iterations at which the selection loss increases.\100
+Maximum number of iterations to perform the training.\1000
+Maximum training time.\3600
+Plot a graph with the parameters norm of each iteration.\false
+Plot a graph with the loss of each iteration.\true
+Plot a graph with the selection loss of each iteration.\true
+Plot a graph with the gradient norm of each iteration.\false</Data>
+   <RowsName>Inverse Hessian approximation method\Training rate method\Training rate tolerance\Minimum parameters increment norm\Minimum loss increase\Performance goal\Gradient norm goal\Maximum selection loss increases\Maximum iterations number\Maximum time\Reserve parameters norm history\Reserve loss history\Reserve selection loss history\Reserve gradient norm history</RowsName>
+   <ColumnsName>Description\Value</ColumnsName>
+   <RowHeadingsWidth>27</RowHeadingsWidth>
+   <ColumnHeadingsWidth>25</ColumnHeadingsWidth>
+   <Alignment>center</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Training" Id="dY4NPz" Component="Training strategy" Name="Perform training">
+  <Text Title="Task description" Id="6Kr1lQ">The procedure used to carry out the learning process is called training (or learning) strategy. The training strategy is applied to the neural network in order to obtain the best possible loss. The type of training is determined by the way in which the adjustment of the parameters in the neural network takes place. </Text>
+  <Text Title="Training algorithm" Id="Xju1Wk">The quasi-Newton method is used here for training. It is based on Newton's method, but does not require calculation of second derivatives. Instead, the quasi-Newton method computes an approximation of the inverse Hessian at each iteration of the algorithm, by only using gradient information. </Text>
+  <Table Title="Quasi-Newton method results" Id="VkVcTK">
+   <Caption Id="2d8Z5m">The next table shows the training results by the quasi-Newton method. They include some final states from the neural network, the loss functional and the training algorithm. Note that the number of iterations needed to converge is zero, which means that the training algorithm did not modify the state of the neural network. </Caption>
+   <Data>23.5
+0.0258
+0.00565
+0.000959
+0
+0
+Gradient norm goal</Data>
+   <RowsName>Final parameters norm\Final loss\Final selection loss\Final gradient norm\Iterations number\Elapsed time\Stopping criterion</RowsName>
+   <ColumnsName>Value</ColumnsName>
+   <RowHeadingsWidth>15</RowHeadingsWidth>
+   <ColumnHeadingsWidth>20</ColumnHeadingsWidth>
+   <Alignment>right</Alignment>
+  </Table>
+ </Task>
+ <Task Title="Python expression" Id="HwOfmW" Component="Neural network" Name="Export Python">
+  <Text Title="Task description" Id="oBL1ji">The predictive model takes the form of a function of the outputs with respect to the inputs. The mathematical expression represented by the model can be exported to different programming languages, in the so called production mode. The Python programming language expression has been saved in the following file: /development/master.thesis/model.py</Text>
  </Task>
 </NeuralDesignerOutput>
