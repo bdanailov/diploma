@@ -203,7 +203,7 @@ void loop() {
 
 Допълнителна информация за по-важните компоненти.
 
-1. Сензори за дистанция - модел *MB1010 LV-MaxSonar-EZ1*
+#### 1. Сензори за дистанция - модел *MB1010 LV-MaxSonar-EZ1*
 
 | ![LV-EZ-Ultrasonic-Range-Finder.jpg](images/LV-EZ-Ultrasonic-Range-Finder.jpg) |
 |:--:|
@@ -224,7 +224,7 @@ void loop() {
 + Най-популярният вътрешен ултразвуков далекомер
 + Най-добър баланс на лъча и чувствителността за сензорите LV-MaxSonar-EZ
 
-2. Платформа ShieldBot
+#### 2. Платформа ShieldBot
 
 | ![Shield_Bot_V1.2_Foto_1.JPG](images/Shield_Bot_V1.2_Foto_1.JPG) |
 |:--:|
@@ -243,7 +243,7 @@ void loop() {
 + Grove Port 6x Grove разширителни портове
 + Шифрован хедър - Ардуино Шийлд разширителни глави
 
-3. Arduino Uno
+#### 3. Arduino Uno
 
 | ![arduino-uno-rev3.jpg](images/arduino-uno-rev3.jpg) |
 |:--:|
