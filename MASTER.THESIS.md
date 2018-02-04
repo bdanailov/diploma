@@ -200,7 +200,7 @@ void loop() {
 
 На фигура 1 е показана диаграма на робота:
 
-| ![robot.png](images/robot.png) |
+| ![robot-bigger.png](images/robot-bigger.png) |
 |:--:|
 | *Фигура 1* |
 
