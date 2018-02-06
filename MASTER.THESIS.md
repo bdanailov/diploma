@@ -442,26 +442,31 @@ if __name__ == '__main__':
 `Neural Designer` ни извежда обща информация за генерираната от нас мрежа:
 
   1. Input
+
   | ![nn-8.png](images/nn-8.png) |
   |:--:|
   | *Фиг.3.8* |
 
   2. Scaling layer
+
   | ![nn-9.png](images/nn-9.png) |
   |:--:|
   | *Фиг.3.9* |
 
   3. Neural Network
+
   | ![nn-10.png](images/nn-10.png) |
   |:--:|
   | *Фиг.3.10* |
 
   4. Output
+
   | ![nn-11.png](images/nn-11.png) |
   |:--:|
   | *Фиг.3.11* |
 
   5. Neural network graph
+  
   | ![nn-12.png](images/nn-12.png) |
   |:--:|
   | *Фиг.3.12* |
